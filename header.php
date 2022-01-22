@@ -16,7 +16,6 @@
 <body style="background-color: #e3fdfb;">
     <nav class="w-75 container-fluid navbar navbar-expand-lg navbar-light bg-light p-0 sticky-top">
         <div class="container-fluid" style="background-color: #e6e6fa;">
-            <a class="navbar-brand" href="#">Велобайк</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Переключатель навигации">
                 <span class="navbar-toggler-icon"></span>
             </button>

@@ -5,9 +5,15 @@ require "header.php";
 <?php
 $connect = mysqli_connect("std-mysql.ist.mospolytech.ru", "std_1480_db_kursovaya", "12345678", "std_1480_db_kursovaya");
 
+$name = $_POST['name'];
+$login = $_POST['login'];
+$pass = $_POST['password'];
+
 if (!empty($_POST)){
+    if(trim($name) == "" || trim($login) == "" || trim($pass) == ""){
+        echo '<script type="text/javascript">alert("Введены не все данные")</script>';}
+    else{
     $result = mysqli_query($connect, "SELECT * FROM users WHERE login=\"".$_POST['login']."\"");
-    //echo mysqli_num_rows($result);
     if(mysqli_num_rows($result) == 0){
         mysqli_query($connect, "INSERT INTO users (name, login, password) VALUES (
             \"".$_POST["name"]."\", 
@@ -16,8 +22,9 @@ if (!empty($_POST)){
             )"
         );
     }
-    //$id = mysqli_insert_id($connect);
-    header("Location: registr.php"); // тут у тебя должен быть индекс
+
+    header("Location: registr.php"); 
+    } 
 }
 
 $title = "Регистрация";
@@ -47,9 +54,10 @@ $content = "
 
 
 ?>
+
 <div class = "container-fluid">
-                <?=$content?>
-            </div>
+    <?=$content?>
+</div>
 
 <?php
 require "footer.php"
